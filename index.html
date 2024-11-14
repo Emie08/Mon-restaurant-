@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Gourmet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- En-tête avec le nom du restaurant et le menu de navigation -->
+    <header>
+        <h1>Restaurant Gourmet</h1>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
+            <a href="#avis">Avis</a>
+            <a href="#paiement">Payer avec Orange Money</a>
+        </nav>
+    </header>
+
+    <!-- Section Menu -->
+    <section id="menu">
+        <h2>Menu</h2>
+        <ul>
+            <li>Entrée : Salade fraîcheur - 5€</li>
+            <li>Plat : Poulet rôti aux herbes - 15€</li>
+            <li>Dessert : Tarte aux pommes - 7€</li>
+        </ul>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Téléphone : +261 32 00 000 00</p>
+        <p>Email : contact@restaurantgourmet.com</p>
+        <p>Adresse : Avenue de la Gastronomie, Antananarivo</p>
+    </section>
+
+    <!-- Section Avis -->
+    <section id="avis">
+        <h2>Avis</h2>
+        <p>Partagez vos retours avec nous !</p>
+        <form onsubmit="envoyerAvis(event)">
+            <label for="avis">Votre avis :</label>
+            <textarea id="avis" rows="4" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+        <div id="avis-liste"></div>
+    </section>
+
+    <!-- Section Paiement -->
+    <section id="paiement">
+        <h2>Payer avec Orange Money</h2>
+        <button onclick="payerOrangeMoney()">Procéder au paiement</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 15px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #27ae60;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    resize: vertical;
+    border-radius: 5px;
+}
+// Fonction pour simuler l'envoi d'avis
+function envoyerAvis(event) {
+    event.preventDefault();
+    const avisText = document.getElementById('avis').value;
+    if (avisText) {
+        const avisListe = document.getElementById('avis-liste');
+        const nouvelAvis = document.createElement('p');
+        nouvelAvis.textContent = avisText;
+        avisListe.appendChild(nouvelAvis);
+        document.getElementById('avis').value = '';  // Efface le champ de texte
+        alert("Merci pour votre avis !");
+    }
+}
+
+// Fonction pour simuler un paiement avec Orange Money
+function payerOrangeMoney() {
+    alert("Redirection vers le paiement Orange Money...");
+    // Ici, tu peux intégrer un service de paiement réel si nécessaire.
+}
+# Restaurant Gourmet
+
+Un site web pour le Restaurant Gourmet, incluant les sections Menu, Contact, Avis, et un bouton pour le paiement via Orange Money.
+
+## Structure des fichiers
+
+- `index.html` : Page principale
+- `style.css` : Fichier de styles
+- `script.js` : Fichier JavaScript pour les interactions
+- `LICENSE` : Licence du projet
+- `.gitignore` : Pour ignorer certains fichiers
+
+## Sections du site
+
+- **Menu** : Menu du restaurant avec quelques plats
+- **Contact** : Informations de contact du restaurant
+- **Avis** : Formulaire pour que les clients laissent leurs avis
+- **Paiement** : Bouton pour le paiement avec Orange Money
+MIT License
+
+Copyright (c) 2024
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+...
+# Ignorer les dossiers de développement et les fichiers inutiles
+node_modules/
+.DS_Store
+.env
